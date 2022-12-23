@@ -1,0 +1,548 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  --greetings-load-delay1: 0ms;
+  --greetings-load-time1: 600ms;
+  --greetings-load-delay2: calc(var(--greetings-load-delay1) + var(--greetings-load-time1));
+  --greetings-load-time2: 600ms;
+  --name-load-delay: calc(var(--greetings-load-delay2) + var(--greetings-load-time2));
+  --name-load-time: 600ms;
+  --lines-load-delay: calc(var(--name-load-delay) + var(--name-load-time));
+  --lines-load-time: 600ms;
+  --nav-load-delay: calc(var(--lines-load-delay) + var(--lines-load-time));
+  --nav-load-time: 300ms;
+  --nav-link-load-delay: calc(var(--nav-load-delay) + var(--nav-load-time));
+  --nav-link-load-time: 500ms;
+}
+
+header {
+  background-color: #F0F0F044;
+}
+
+.dotted-hr {
+  border-style: dotted none none;
+  border-color: #FF4D67;
+  border-width: 15px;
+  width: 120px;
+  margin: 50px 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Navigation bar style and animations*/
+nav {
+  background-color: #3C7199;
+  color: white;
+  animation: nav-load var(--nav-load-time) ease-in var(--nav-load-delay);
+  transform: translateY(-100%);
+  animation-fill-mode: forwards;
+}
+nav ul {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+nav li {
+  list-style: none;
+  font-weight: 400;
+  font-size: 1.7rem;
+  padding: 25px 0px;
+  animation: nav-link-load var(--nav-link-load-time) ease-in var(--nav-link-load-delay);
+  animation-fill-mode: forwards;
+  transform: scale(0);
+}
+nav li:first-child {
+  animation-name: nav-first-link-load;
+}
+nav li:last-child {
+  animation-name: nav-last-link-load;
+}
+nav li:hover {
+  background-color: #FFFFFF50;
+}
+nav a{
+  padding: 25px 40px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Nav bar menu button that shows at 630px or less*/
+.toggle-button {
+  position: absolute;
+  padding: 10px;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Greetings style and animations*/
+.name-title{
+  margin: 0;
+}
+.intro-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 20vh;
+}
+.greeting {
+  font-weight: 500;
+  font-size: 3rem;
+}
+.name {
+  font-size: 7rem;
+  font-weight: 700;
+  animation: name-load var(--name-load-time) ease-in var(--name-load-delay);
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.left-line {
+  margin-top: 40px;
+  margin-right: 40px;
+  flex: 1;
+  border-top: 7px solid #FF4D67;
+  animation: line-left-load var(--lines-load-time) ease-in var(--lines-load-delay);
+  transform-origin: right;
+  animation-fill-mode: forwards;
+  transform: scale(0);
+}
+.right-line {
+  margin-top: 40px;
+  margin-left: 40px;
+  flex: 1;
+  border-top: 7px solid #FF4D67;
+  animation: line-right-load var(--lines-load-time) ease-in var(--lines-load-delay);
+  transform-origin: left;
+  animation-fill-mode: forwards;
+  transform: scale(0);
+}
+.greeting-animation-part1 {
+  animation: greetings-load var(--greetings-load-time1) ease-in var(--greetings-load-delay1);
+  animation-fill-mode: forwards;
+  display: inline-block;
+  opacity: 0;
+}
+.greeting-animation-part2 {
+  animation: greetings-load var(--greetings-load-time2) ease-in var(--greetings-load-delay2);
+  animation-fill-mode: forwards;
+  opacity: 0;
+  display: inline-block;
+}
+
+@media (width < 825px){
+ .intro-flex-container {
+   display: block;
+ }
+
+ .left-line {
+   margin-top: 225px;
+   margin-bottom: 50px;
+   margin-right: 0;
+ }
+
+ .right-line {
+   margin-top: 50px;
+   margin-left: 0;
+ }
+
+}
+
+@media (width < 630px) {
+  nav ul li{
+    display: none;
+    padding: 0;
+  }
+
+  nav ul li a{
+    display: block;
+    width: 100%;
+  }
+
+  nav ul li.active {
+    display: list-item;
+  }
+
+  nav ul {
+    min-height: 70px;
+    padding: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toggle-button {
+    display: flex;
+    z-index: 1;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EDUCATION SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.education-flex-container {
+  background-color: #3F76A1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.education-title {
+  font-weight: 600;
+  font-size: 3.5rem;
+  margin: 0;
+}
+.education-description {
+  width: 50%;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 2rem;
+  padding-bottom: 100px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PROJECT SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.flex-container-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F9F7F7;
+  min-height: 100vh;
+  --list-and-desc-width: 75%;
+}
+
+/* Projects top heading */
+.flex-container-title {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-top: 7%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.projects-left-line {
+  background-color: #FF4D67;
+  flex: 1;
+  min-height: 7px;
+}
+.projects-title{
+  padding-left: 80px;
+  padding-right: 80px;
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+.projects-right-line {
+  background-color: #FF4D67;
+  flex: 1;
+  min-height: 7px;
+}
+.projects-github-link{
+  padding: 0 20px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 4%;
+}
+
+/* Horizontal clickable list items */
+.list {
+  background-color: #5096CC;
+  height: 100px;
+  width: var(--list-and-desc-width);
+  border: 4px solid black;
+  border-top: 0;
+  font-weight: 600;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+/* List items are using the bottom border of previous item as their top border. 1 needs it manually entered */
+#list-item-1 {
+  border-top: 4px solid black;
+  margin-top: 5%;
+}
+.list:hover {
+  background-color: #3C7199;
+}
+.list-item-5-desc {
+  margin-bottom: 400px;
+}
+
+/* Arrow icon style and animation */
+.fa-chevron-down {
+  font-size: 1.3rem;
+  padding-top: 12px;
+  padding-bottom: 7px;
+}
+.icon-rotate-up {
+  animation: rotate-icon-up 700ms ease-out;
+  animation-fill-mode: forwards;
+}
+.icon-rotate-down {
+  animation: rotate-icon-down 400ms ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Expand and collapse description section */
+.expand {
+  max-height: 1000px;
+  transition: max-height 700ms ease, overflow 700ms ease, padding 700ms ease;
+  overflow: hidden;
+  padding: 60px 0px;
+  border: 4px solid black;
+  border-top: 0;
+}
+.collapsed {
+  max-height: 0px;
+  transition: all 500ms ease-out;
+  overflow: hidden;
+  border-right: 4px solid black;
+  border-left: 4px solid black;
+}
+
+/* Pop down description section styling and positioning  */
+.description {
+  background-color: #DFF6FF;
+  width: var(--list-and-desc-width);
+  font-size: 1.5rem;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: 3% 1fr 1fr 3%;
+  grid-auto-rows: auto;
+  row-gap: 20px;
+  column-gap: 30px;
+}
+.description-title {
+  font-weight: 600;
+  font-size: 2rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.description-text {
+  line-height: 1.1;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  }
+ .description-image {
+ grid-column-start: 3;
+ grid-column-end: 4;
+ grid-row-start: 1;
+ grid-row-end: 3;
+}
+
+.website-link {
+  color: #FF4D67;
+}
+
+@media (width < 1550px) {
+  .description{
+    display: block;
+  }
+
+  .description-title {
+    padding: 0 40px 20px 40px;
+  }
+
+  .description-image {
+    padding: 0 40px 20px 40px;
+  }
+
+  .description-text {
+    padding: 0 40px;
+  }
+}
+
+@media (width < 1080px) {
+  .description-image{
+    width: 85%;
+  }
+}
+
+@media (width < 550px) {
+  .flex-container-list {
+    --list-and-desc-width: 100%;
+  }
+
+  .flex-container-title {
+    width: 100%;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONTACT ME SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#contact-me {
+  min-height: 60vh;
+  background-color: #3F76A1;
+}
+
+/* Top text */
+.contact-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+.contact-description {
+  padding: 0 20px;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+/* Buttons */
+.contact-btn-container {
+  display: flex;
+  margin-top: 60px;
+}
+.contact-btn {
+  background: none;
+  color: black;
+  border: 3px solid black;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 15px 30px;
+  margin-top: 50px;
+}
+.contact-btn:hover {
+  background-color: #FF4D67;
+  cursor: pointer;
+}
+.email-btn {
+  margin: 0;
+}
+.email-btn-link {
+  text-decoration: none;
+  margin-right: 20px;
+}
+.linkedin-btn {
+  margin: 0;
+}
+.linkedin-btn-link {
+  margin-left: 20px;
+}
+
+/* ~~~~~~~~~~~~~~~~Header Animations~~~~~~~~~~~~~~~~ */
+@keyframes nav-load{
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-link-load{
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes nav-first-link-load{
+  0% {
+    transform: translateX(-1500%);
+  }
+  90% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-last-link-load{
+  0% {
+    transform: translateX(1500%);
+  }
+  90% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes greetings-load {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes name-load {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes line-left-load {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes line-right-load {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~Project Animations~~~~~~~~~~~~~~~~ */
+@keyframes rotate-icon-up {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes rotate-icon-down {
+  0%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
