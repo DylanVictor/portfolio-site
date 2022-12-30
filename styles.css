@@ -195,7 +195,7 @@ nav a{
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EDUCATION SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .education-flex-container {
-  background-color: #4683B3;
+  background-color: #4B8DBF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -390,7 +390,7 @@ nav a{
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONTACT ME SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #contact-me {
   min-height: 60vh;
-  background-color: #3F76A1;
+  background-color: #4B8DBF;
 }
 
 /* Top text */
