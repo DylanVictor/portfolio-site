@@ -194,18 +194,18 @@ nav a{
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EDUCATION SECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-.education-flex-container {
+.about-flex-container {
   background-color: #4B8DBF;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.education-title {
+.about-title {
   font-weight: 600;
   font-size: 3.5rem;
   margin: 0;
 }
-.education-description {
+.about-description {
   width: 50%;
   font-weight: 400;
   font-size: 1.7rem;
